@@ -15,17 +15,25 @@
         </a>
     </nav>
 
-    <form>
-        <div class="row g-3">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Insertar RUT">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="DV" aria-label="DV">
-            </div>
-        </div>
-    </form>
+    <section class="w-100 p-4 d-flex justify-content-center pb-4 $blue">
+            <form id="form">
+                <p>Ingrese su RUT y dígito verificador</p>
+                <div class="input-group mb-3">
+                    <div class="col-md-3">
+                        <input type="text" id="rut" class="form-control" placeholder="Rut">
+                    </div>
+                    <span class="input-group-text">-</span>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" id="dv" name="dv" placeholder="DV" aria-label="DV">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                </div>
+            </form> 
+    </section>
+   
 </body>
 
-<script src="source/rutificador.js"></script>
+<script src="source/methods.js"></script>
 </html>
