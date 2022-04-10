@@ -1,0 +1,43 @@
+Para el correcto funcionamiento de este WebService se debe configurar el archivo "application.properties" 
+que se encuentra en la siguente ruta:
+".../src/main/resources"
+
+Content "application.properties"
+
+spring.datasource.url=jdbc:mysql://localhost:3306/test
+spring.datasource.username=admin
+spring.datasource.password=admin
+spring.jpa.hibernate.ddl-auto=update  // "update" si se quiere crear automaticamente las tablas, "none" si las tablas ya estan creadas
+
+Todas las pruebas de solicitudes (POST/GET) se realizaron con Postman y se trabajo con una base de datos MariaDB
+
+Estructura Json Rut
+
+{
+    "rut": "20107983",
+    "verifyCode" : "7"
+}
+
+Models/Rut.java
+	private long id;
+	private int Rut = 0;
+	private String VerifyCode = "N";
+	private boolean Validate = false;
+
+Estructura Json Split 
+
+{
+    "nombres":
+    [
+        "Example1",
+        "Example2"
+    ],
+    "paterno" : "ExamplePaterno",
+    "materno" : "ExampleMaterno"
+}
+
+Models/Split.java
+	private long id;
+	private List<String> Nombres;		// se genera una tabla con los nombres y una id
+	private String Paterno;
+	private String Materno;
