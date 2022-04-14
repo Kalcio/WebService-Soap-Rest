@@ -21,6 +21,7 @@ $server->wsdl->addComplexType(
 $server->register(
     'separarNombres',
     array('name' => 'tns:nombres'),
+    array('name' => 'tns:response'),
     $namespace,
     false,
     'rpc',
@@ -29,13 +30,13 @@ $server->register(
 );
 
 function separarNombres($names){
-    $separador = ' ';
-    $separados = explode($separador, $names);
+    // $separador = ' ';
+    // $separados = explode($separador, $names);
 
     // if(count($separados)<3){
 
     // }
-    return $separados;
+    return array("Numero de Intentos");
 }
 
 $POST_DATA = file_get_contents("php://input");
