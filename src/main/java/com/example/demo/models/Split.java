@@ -2,27 +2,10 @@ package com.example.demo.models;
 
 import java.util.List;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="SplitTable")
 public class Split {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY )
-	@Column(unique = true,nullable = false)
+
 	private long id;
 	
-	@ElementCollection // 1
-    @CollectionTable(name = "NombresTable", joinColumns = @JoinColumn(name = "id")) // 2
-    @Column(name = "Nombres") // 3
     private List<String> Nombres;
 	private String Paterno;
 	private String Materno;

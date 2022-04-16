@@ -1,13 +1,7 @@
 package com.example.demo.models;
 
-import javax.persistence.*;
-@Entity
-@Table(name="RutTable")
 public class Rut {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY )
-	@Column(unique = true,nullable = false)
 	private long id;
 	private int Rut = 0;
 	private String VerifyCode = "N";

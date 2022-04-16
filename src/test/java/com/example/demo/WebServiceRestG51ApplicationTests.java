@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WebServiceRestG5ApplicationTests {
+class WebServiceRestG51ApplicationTests {
 
 	@Test
 	void contextLoads() {

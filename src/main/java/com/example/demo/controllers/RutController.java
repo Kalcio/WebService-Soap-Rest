@@ -1,6 +1,6 @@
 package com.example.demo.controllers;
 
-import java.util.ArrayList;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,14 +17,15 @@ public class RutController {
 	@Autowired
 	RutService RutService;
 	
+	private Rut rut1;
 	@GetMapping()
-	public ArrayList<Rut> ObtenerRut(){
-		return RutService.ObtenerRut();
+	public Rut ObtenerRut(){
+		return rut1;
 	}
 	@PostMapping()
 	public Rut guardarRut(@RequestBody Rut x) {
 		this.RutService.VerifyRut(x);
-		return this.RutService.guardarRut(x);
+		return this.rut1 = x;
 	}
 	
 }
