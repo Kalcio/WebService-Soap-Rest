@@ -6,22 +6,31 @@ $namespace = "T1_Redes.alv";
 $server = new soap_server();
 $server->configureWSDL("Soap", $namespace);
 $server->wsdl->schemaTargetNamespace = $namespace;
+$stringer = 'xsd:string';
 
-$server->wsdl->addComplexType(
-    'nombres',
-    'complextype',
-    'struct',
-    'all',
-    '',
+// $server->wsdl->addComplexType(
+//     'nombres',
+//     'complextype',
+//     'struct',
+//     'all',
+//     '',
+//     array(
+//         'Nombre' => array('name' => 'Nombre', 'type'=>'xsd:string'),
+//     )
+// );
+
+$server->wsdl->addComplexType('nombresSeparados','complexType','struct','all','',
     array(
-        'Nombre' => array('name' => 'Nombre', 'type'=>'xsd:string'),
+        'nombre' => array('name'=>'nombre', 'type'=>$stringer),
+        'apellidoPaterno' => array('name'=>'apellidoPaterno', 'type'=>$stringer),
+        'apellidoMaterno' => array('name'=>'apellidoMaterno', 'type'=>$stringer),
     )
 );
 
 $server->register(
     'validarRut',
-    array('rut' => 'xsd:string', 'dv' => 'xsd:string'),
-    array('return' => 'xsd:string'),
+    array('rut' => $stringer, 'dv' => $stringer),
+    array('return' => $stringer),
     $namespace,
     false,
     'rpc',
@@ -29,41 +38,42 @@ $server->register(
     'Recibe un nombre y los separa',
 );
 
-// $server->register(
-//     'separarNombres',
-//     array('name' => 'tns:nombres'),
-//     array('nombre' => 'tns:nombre', 'apellido1' => 'tns:apellido1', 'apellido2' => 'tns:apellidos2'),
-//     $namespace,
-//     false,
-//     'rpc',
-//     'encoded',
-//     'Recibe un nombre y los separa',
-// );
+$server->register(
+    'separarNombres',
+    array('name' => $stringer),
+    array('separa' => 'tns:nombresSeparados'),
+    $namespace,
+    false,
+    'rpc',
+    'encoded',
+    'Recibe un nombre y los separa',
+);
 
 
 function validarRut($rut, $dv){
     $r=(int)$rut;
     $d=(int)$dv;
     $s=1;
-     for($m=0;$r!=0;$r/=10)
+    for($m=0;$r!=0;$r/=10) {
         $s=($s+$r%10*(9-$m++%6))%11;
-     if($dv == chr($s?$s+47:75)){
-         $negativo = "El rut: " . $rut . "-" . $dv . " es VALIDO";
-        return $negativo;
-     }else {
-        $positivo = "El rut: " . $rut . "-" . $dv . " es INVALIDO";
-        return $positivo;
-     }
+    }
+    if($dv == chr($s?$s+47:75)){
+        return "El rut: " . $rut . "-" . $d . " es VALIDO";
+    }else {
+        return "El rut: " . $rut . "-" . $d . " es INVALIDO";
+    }
 }
 
-// function separarNombres($names){
-//     $separador = ' ';
-//     $separados = explode($separador, $names);
+function separarNombres($names){
+    $separador = ' ';
+    $separados = explode($separador, $names);
 
-//     if(count($separados)<3){
-//         return array("Error con los datos");
-//     }
-// }
+    if(count($separados)<3){
+        return "Faltan datos";
+    } else{
+        return array_chunk($separados, 3);
+    }
+}
 
 $POST_DATA = file_get_contents("php://input");
 $server->service($POST_DATA);
