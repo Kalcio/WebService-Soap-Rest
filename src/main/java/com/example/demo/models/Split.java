@@ -4,18 +4,12 @@ import java.util.List;
 
 public class Split {
 
-	private long id;
+	
 	
     private List<String> Nombres;
 	private String Paterno;
 	private String Materno;
 	
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
 	
 	public List<String> getNombres() {
 		return Nombres;

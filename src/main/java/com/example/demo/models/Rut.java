@@ -2,18 +2,11 @@ package com.example.demo.models;
 
 public class Rut {
 
-	private long id;
+
 	private int Rut = 0;
 	private String VerifyCode = "N";
 	private boolean Validate = false;
 	
-
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public int getRut() {
 		return Rut;
