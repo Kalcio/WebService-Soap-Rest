@@ -19,12 +19,12 @@ $stringer = 'xsd:string';
 //     )
 // );
 
-$server->wsdl->addComplexType('nombresSeparados','complexType','struct','all','',
+$server->wsdl->addComplexType('nombresSeparados','complexType','array','sequence','',
     array(
         'nombre' => array('name'=>'nombre', 'type'=>$stringer),
         'apellidoPaterno' => array('name'=>'apellidoPaterno', 'type'=>$stringer),
         'apellidoMaterno' => array('name'=>'apellidoMaterno', 'type'=>$stringer),
-    )
+        )
 );
 
 $server->register(
@@ -35,7 +35,7 @@ $server->register(
     false,
     'rpc',
     'encoded',
-    'Recibe un nombre y los separa',
+    'Recibe un rut y los separa',
 );
 
 $server->register(
@@ -69,9 +69,9 @@ function separarNombres($names){
     $separados = explode($separador, $names);
 
     if(count($separados)<3){
-        return "Faltan datos";
+        return array('faltan datos');
     } else{
-        return array_chunk($separados, 3);
+        return array_chunk($separados,3);
     }
 }
 
