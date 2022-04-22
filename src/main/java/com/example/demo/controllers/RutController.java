@@ -25,7 +25,8 @@ public class RutController {
 	@PostMapping()
 	public Rut guardarRut(@RequestBody Rut x) {
 		this.RutService.VerifyRut(x);
-		return this.rut1 = x;
+		this.rut1 = x;
+		return this.rut1;
 	}
 	
 }

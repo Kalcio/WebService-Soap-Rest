@@ -1,7 +1,6 @@
 package com.example.demo.controllers;
 import com.example.demo.models.Split;
 import com.example.demo.models.SplitInput;
-import com.example.demo.services.SplitService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class SplitController {
 	//@Autowired
 	private Split split1 = new Split();
-	SplitService SplitService;
+	
+	
 	@GetMapping()
 	public Split ObtenerSplit(){
 		return split1;
@@ -28,7 +28,7 @@ public class SplitController {
 	@PostMapping()
 	public Split guardarSplit(@RequestBody SplitInput x) {
 		
-		//return this.split1 = SplitService.TransformInput(x);
+	
 		String NombreCompleto = x.getNombreCompleto();
 		String[] Nombres = NombreCompleto.split(" ");
 		List<String> NombresList = Arrays.asList(Nombres);

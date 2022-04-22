@@ -3,16 +3,16 @@ package com.example.demo.models;
 public class Rut {
 
 
-	private int Rut = 0;
+	private int RutValue = 0;
 	private String VerifyCode = "N";
 	private boolean Validate = false;
 	
 
 	public int getRut() {
-		return Rut;
+		return RutValue;
 	}
 	public void setRut(int Rut) {
-		this.Rut = Rut;
+		this.RutValue = Rut;
 	}
 	public String getVerifyCode() {
 		return VerifyCode;
