@@ -6,33 +6,33 @@ public class Split {
 
 	
 	
-    private List<String> Nombres;
-	private String Paterno;
-	private String Materno;
+    private List<String> nombres;
+	private String paterno;
+	private String materno;
 	
 	
 	public List<String> getNombres() {
-		return Nombres;
+		return nombres;
 	}
 	
 	public void setNombres(List<String> nombres) {
-		this.Nombres = nombres;
+		this.nombres = nombres;
 	}
 	
 	public String getPaterno() {
-		return Paterno;
+		return paterno;
 	}
 	
 	public void setPaterno(String paterno) {
-		this.Paterno = paterno;
+		this.paterno = paterno;
 	}
 	
 	public String getMaterno() {
-		return Materno;
+		return materno;
 	}
 	
 	public void setMaterno(String materno) {
-		this.Materno = materno;
+		this.materno = materno;
 	}
 	
 }

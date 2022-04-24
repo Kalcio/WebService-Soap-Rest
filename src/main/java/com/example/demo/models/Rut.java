@@ -3,28 +3,28 @@ package com.example.demo.models;
 public class Rut {
 
 
-	private int RutValue = 0;
-	private String VerifyCode = "N";
-	private boolean Validate = false;
+	private int rutValue = 0;
+	private String verifyCode = "N";
+	private boolean validate = false;
 	
 
 	public int getRut() {
-		return RutValue;
+		return rutValue;
 	}
-	public void setRut(int Rut) {
-		this.RutValue = Rut;
+	public void setRut(int rut) {
+		this.rutValue = rut;
 	}
 	public String getVerifyCode() {
-		return VerifyCode;
+		return verifyCode;
 	}
 	
-	public void setVerifyCode(String VerifyCode) {
-		this.VerifyCode = VerifyCode;
+	public void setVerifyCode(String verifyCode) {
+		this.verifyCode = verifyCode;
 	}
 	public boolean getValidate() {
-		return Validate;
+		return validate;
 	}
-	public void setValidate(boolean Validate) {
-		this.Validate = Validate;
+	public void setValidate(boolean validate) {
+		this.validate = validate;
 	}
 }

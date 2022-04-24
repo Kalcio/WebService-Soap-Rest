@@ -1,13 +1,13 @@
 package com.example.demo.models;
 
 public class SplitInput {
-	private String NombreCompleto = "";
+	private String nombreCompleto = "";
 
 	public String getNombreCompleto() {
-		return NombreCompleto;
+		return nombreCompleto;
 	}
 
 	public void setNombreCompleto(String nombreCompleto) {
-		this.NombreCompleto = nombreCompleto;
+		this.nombreCompleto = nombreCompleto;
 	}
 }
