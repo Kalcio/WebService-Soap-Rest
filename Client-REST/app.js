@@ -20,9 +20,9 @@ function jsonRutGet(){
         writeTextLog ('Información por pantalla: ' + ' Rut:'+ data.rut + ' Digito Verificador:' + data.verifyCode + ' Validate:' +data.validate)
         contenidoRut.innerHTML = `
         <div class="alert alert-info text-light bg-dark" role="alert">
+        <p><b class="" >El Rut esta validado?:  ${data.validate}</b></p>
         <p>el Rut que se encuentra ahora mismo en el WS es : ${data.rut}</p>
         <p>El digito Verificador es: ${data.verifyCode}</p>
-        <p>El Rut Se esta validado?:  ${data.validate}</p>
         </div>
         `
     })
@@ -41,7 +41,7 @@ formularioRut.addEventListener('submit',function(e){
     "w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N",
     "O","P","Q","R","S","U","V","W","X","Y","Z"];
 
-    if(rut.includes('-') && contains(verifyCode,verifyCodeTarget) && !contains(rut,min) && rut.length == 9 || rut.length == 10){
+    if(rut.includes('-') && contains(verifyCode,verifyCodeTarget) && !contains(rut,min) && rut.length == 9 || rut.length == 10 && containsSpecialChars(rut) == 0){
         console.log('El Formato de los Datos de Rut Es correcto, y se envió para su evaluación...')
         writeTextLog('El Formato de los Datos de Rut Es correcto, y se envió para su evaluación...')
         rut = rut.slice(0, -2)
@@ -86,6 +86,18 @@ function contains(target, pattern){
     });
     return (value === 1)
 }
+function deleteAlert(){
+    contenidoRut.innerHTML = ``;
+    contenidoSplit.innerHTML = ``;
+    errorRut.innerHTML=``;
+    errorSplit.innerHTML=``;
+    
+}
+
+function containsSpecialChars(str) {
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    return specialChars.test(str);
+  }
 
 //-.-.-.-.- SAVE LOG -.-.-.-.-.-.-
 
@@ -174,8 +186,10 @@ formularioSplit.addEventListener('submit',function(e){
     var InputSplit = datos.get('InputSplit')
     
     var countSplit = (InputSplit.match(/ /g) || []).length;
+    var limitSplit = (InputSplit.match(/  /g) || []).length;
+    
 
-    if(InputSplit.includes(' ') && countSplit >= 2 ) {    
+    if(InputSplit.includes(' ') && countSplit >= 2 && limitSplit == 0 && containsSpecialChars(InputSplit) == 0) {    
         console.log('El Formato de los Datos de Split Es correcto, y se envió para su evaluación...')
         writeTextLog('El Formato de los Datos de Split Es correcto, y se envió para su evaluación...')
         const jsonSplitPost = new Request(url + 'Split', {
