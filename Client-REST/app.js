@@ -41,7 +41,7 @@ formularioRut.addEventListener('submit',function(e){
     "w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N",
     "O","P","Q","R","S","U","V","W","X","Y","Z"];
 
-    if(rut.includes('-') && contains(verifyCode,verifyCodeTarget) && !contains(rut,min) && rut.length == 9 || rut.length == 10){
+    if(rut.includes('-') && contains(verifyCode,verifyCodeTarget) && !contains(rut,min) && rut.length == 9 || rut.length == 10 && containsSpecialChars(rut) == 0){
         console.log('El Formato de los Datos de Rut Es correcto, y se envió para su evaluación...')
         writeTextLog('El Formato de los Datos de Rut Es correcto, y se envió para su evaluación...')
         rut = rut.slice(0, -2)
@@ -93,6 +93,11 @@ function deleteAlert(){
     errorSplit.innerHTML=``;
     
 }
+
+function containsSpecialChars(str) {
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    return specialChars.test(str);
+  }
 
 //-.-.-.-.- SAVE LOG -.-.-.-.-.-.-
 
@@ -181,8 +186,10 @@ formularioSplit.addEventListener('submit',function(e){
     var InputSplit = datos.get('InputSplit')
     
     var countSplit = (InputSplit.match(/ /g) || []).length;
+    var limitSplit = (InputSplit.match(/  /g) || []).length;
+    
 
-    if(InputSplit.includes(' ') && countSplit >= 2 ) {    
+    if(InputSplit.includes(' ') && countSplit >= 2 && limitSplit == 0 && containsSpecialChars(InputSplit) == 0) {    
         console.log('El Formato de los Datos de Split Es correcto, y se envió para su evaluación...')
         writeTextLog('El Formato de los Datos de Split Es correcto, y se envió para su evaluación...')
         const jsonSplitPost = new Request(url + 'Split', {
