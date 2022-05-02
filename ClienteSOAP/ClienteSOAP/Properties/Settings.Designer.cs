@@ -26,10 +26,10 @@ namespace ClienteSOAP.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/SOAP-API/SOAP-API/index.php")]
-        public string ClienteSOAP_WebServiceSOAP_Soap {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/T1-Redes-ClienteSoap/SOAP-API/index.php")]
+        public string ClienteSOAP_WebServiceSOAP1_Soap {
             get {
-                return ((string)(this["ClienteSOAP_WebServiceSOAP_Soap"]));
+                return ((string)(this["ClienteSOAP_WebServiceSOAP1_Soap"]));
             }
         }
     }

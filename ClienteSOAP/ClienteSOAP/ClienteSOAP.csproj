@@ -99,7 +99,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Web References\WebServiceSOAP\Reference.cs">
+    <Compile Include="Web References\WebServiceSOAP1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -140,11 +140,11 @@
     <Content Include="Scripts\bootstrap.esm.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
-    <None Include="Web References\WebServiceSOAP\index.wsdl" />
-    <Content Include="Web References\WebServiceSOAP\nombresSeparados.datasource">
+    <None Include="Web References\WebServiceSOAP1\index.wsdl" />
+    <Content Include="Web References\WebServiceSOAP1\nombresSeparados.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
-    <Content Include="Web References\WebServiceSOAP\Reference.map">
+    <Content Include="Web References\WebServiceSOAP1\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
@@ -162,16 +162,16 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost/SOAP-API/SOAP-API/index.php%3fwsdl">
+    <WebReferenceUrl Include="http://localhost/T1-Redes-ClienteSoap/SOAP-API/index.php%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\WebServiceSOAP\</RelPath>
-      <UpdateFromURL>http://localhost/SOAP-API/SOAP-API/index.php%3fwsdl</UpdateFromURL>
+      <RelPath>Web References\WebServiceSOAP1\</RelPath>
+      <UpdateFromURL>http://localhost/T1-Redes-ClienteSoap/SOAP-API/index.php%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>ClienteSOAP_WebServiceSOAP_Soap</CachedSettingsPropName>
+      <CachedSettingsPropName>ClienteSOAP_WebServiceSOAP1_Soap</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>

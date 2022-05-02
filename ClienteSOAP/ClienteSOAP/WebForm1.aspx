@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="img/logo.jpg" height="40" class="d-inline-block align-top" alt=""/>
+            <img src="img/logo.jpg" height="40" class="d-inline-block align-top" alt="" aria-dropeffect="popup"/>
             Grupo 5
         </a>
     </nav>
@@ -29,14 +29,43 @@
                 -</span>
                 <div class="col-md-2">
                     <asp:TextBox ID="DV" class="form-control" name="dv" placeholder="DV" runat="server"></asp:TextBox>
-                </div>
+                </div>              
             </div>
             <div class="col-12">
                 <asp:Button ID="Button1" class="btn btn-primary" runat="server" OnClick="Button1_Click" Text="Button" />
             </div>
+
+            <div>
+                <p>Ingrese su nombre y apellidos</p>
+            </div>
+            <div class="input-group mb-3">
+                <div class="col-md-3">
+                    <asp:TextBox ID="Nombres" class="form-control" placeholder="Nombre y apellido" runat="server"></asp:TextBox>
+                </div>
+
+            </div>
+            <div class="col-12">
+
+                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Button" />
+
+            </div>
+
         </form>
         <p>
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        </p>
+
+        <p>
+            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+        </p>
+        <p>
+            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+        </p>
+        <p>
+            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+        </p>
+        <p>
+            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
         </p>
     </section>
 
