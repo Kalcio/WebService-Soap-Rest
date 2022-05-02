@@ -20,9 +20,9 @@ function jsonRutGet(){
         writeTextLog ('Información por pantalla: ' + ' Rut:'+ data.rut + ' Digito Verificador:' + data.verifyCode + ' Validate:' +data.validate)
         contenidoRut.innerHTML = `
         <div class="alert alert-info text-light bg-dark" role="alert">
+        <p><b class="" >El Rut esta validado?:  ${data.validate}</b></p>
         <p>el Rut que se encuentra ahora mismo en el WS es : ${data.rut}</p>
         <p>El digito Verificador es: ${data.verifyCode}</p>
-        <p>El Rut Se esta validado?:  ${data.validate}</p>
         </div>
         `
     })
@@ -85,6 +85,13 @@ function contains(target, pattern){
       value = value + target.includes(word);
     });
     return (value === 1)
+}
+function deleteAlert(){
+    contenidoRut.innerHTML = ``;
+    contenidoSplit.innerHTML = ``;
+    errorRut.innerHTML=``;
+    errorSplit.innerHTML=``;
+    
 }
 
 //-.-.-.-.- SAVE LOG -.-.-.-.-.-.-
