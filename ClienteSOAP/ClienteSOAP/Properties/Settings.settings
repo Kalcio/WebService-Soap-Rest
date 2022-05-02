@@ -2,8 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ClienteSOAP.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ClienteSOAP_WebServiceSOAP_Soap" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost/SOAP-API/SOAP-API/index.php</Value>
+    <Setting Name="ClienteSOAP_WebServiceSOAP1_Soap" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/T1-Redes-ClienteSoap/SOAP-API/index.php</Value>
     </Setting>
   </Settings>
 </SettingsFile>

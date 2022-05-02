@@ -8,24 +8,6 @@ $server->configureWSDL("Soap", $namespace);
 $server->wsdl->schemaTargetNamespace = $namespace;
 $stringer = 'xsd:string';
 
-// $server->wsdl->addComplexType(
-//     'nombres',
-//     'complextype',
-//     'struct',
-//     'all',
-//     '',
-//     array(
-//         'Nombre' => array('name' => 'Nombre', 'type'=>'xsd:string'),
-//     )
-// );
-
-$server->wsdl->addComplexType('nombresSeparados','complexType','array','sequence','',
-    array(
-        'nombre' => array('name'=>'nombre', 'type'=>$stringer),
-        'apellidoPaterno' => array('name'=>'apellidoPaterno', 'type'=>$stringer),
-        'apellidoMaterno' => array('name'=>'apellidoMaterno', 'type'=>$stringer),
-        )
-);
 
 $server->register(
     'validarRut',
@@ -40,8 +22,8 @@ $server->register(
 
 $server->register(
     'separarNombres',
-    array('name' => $stringer),
-    array('separa' => 'tns:nombresSeparados'),
+    array('name' => $stringer, 'num'),
+    array('separa' => $stringer),
     $namespace,
     false,
     'rpc',
@@ -64,15 +46,26 @@ function validarRut($rut, $dv){
     }
 }
 
-function separarNombres($names){
+function separarNombres($names, $num){
     $separador = ' ';
     $separados = explode($separador, $names);
 
-    if(count($separados)<3){
-        return array('faltan datos');
-    } else{
-        return array_chunk($separados,3);
-    }
+   if(count($separados)==4) {
+       if($num==0){
+            return "$separados[0]";
+        }
+       else if($num==1){
+            return "$separados[1]";
+        }
+        else if($num==2){
+            return "$separados[2]";
+        }
+        else if($num==3){
+            return "$separados[3]";
+        }
+   }
+    return "No valido";
+    
 }
 
 $POST_DATA = file_get_contents("php://input");

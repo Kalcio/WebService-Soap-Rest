@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="T1_Redes.alv" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="T1_Redes.alv" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="T1_Redes.alv">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="nombresSeparados">
+        <xsd:sequence>
+          <xsd:element name="nombre" type="xsd:string" />
+          <xsd:element name="apellidoPaterno" type="xsd:string" />
+          <xsd:element name="apellidoMaterno" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="validarRutRequest">
+    <wsdl:part name="rut" type="xsd:string" />
+    <wsdl:part name="dv" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="validarRutResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="separarNombresRequest">
+    <wsdl:part name="name" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="separarNombresResponse">
+    <wsdl:part name="separa" type="tns:nombresSeparados" />
+  </wsdl:message>
+  <wsdl:portType name="SoapPortType">
+    <wsdl:operation name="validarRut">
+      <documentation>Recibe un rut y los separa</documentation>
+      <wsdl:input message="tns:validarRutRequest" />
+      <wsdl:output message="tns:validarRutResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="separarNombres">
+      <documentation>Recibe un nombre y los separa</documentation>
+      <wsdl:input message="tns:separarNombresRequest" />
+      <wsdl:output message="tns:separarNombresResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SoapBinding" type="tns:SoapPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="validarRut">
+      <soap:operation soapAction="http://localhost/T1-Redes-ClienteSoap/SOAP-API/index.php/validarRut" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="T1_Redes.alv" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="T1_Redes.alv" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="separarNombres">
+      <soap:operation soapAction="http://localhost/T1-Redes-ClienteSoap/SOAP-API/index.php/separarNombres" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="T1_Redes.alv" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="T1_Redes.alv" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Soap">
+    <wsdl:port name="SoapPort" binding="tns:SoapBinding">
+      <soap:address location="http://localhost/T1-Redes-ClienteSoap/SOAP-API/index.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
