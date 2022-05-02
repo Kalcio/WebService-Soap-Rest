@@ -16,12 +16,14 @@
             Grupo 5
         </a>
     </nav>
-    <section class="w-100 p-4 d-flex justify-content-center pb-4 $blue">
+    <section class="w-100 p-4 d-flex justify-content-center pb-4 ">
         <form id="form1" runat="server">
+            <section class="row bg-secondary text-center ">
+                <section class="Contenido col order-1">
             <div>
                 <p>Ingrese su RUT y dígito verificador</p>
             </div>
-            <div class="input-group mb-3">
+            <div class="input-group mb-3 justify-content-center">
                 <div class="col-md-3">
                     <asp:TextBox ID="Rut" class="form-control" placeholder="Rut" runat="server"></asp:TextBox>
                 </div>
@@ -32,42 +34,55 @@
                 </div>              
             </div>
             <div class="col-12">
-                <asp:Button ID="Button1" class="btn btn-primary" runat="server" OnClick="Button1_Click" Text="Button" />
+                <asp:Button ID="Button1" class="btn btn-primary" runat="server" OnClick="Button1_Click" OnClientClick="mostrarTexto2()" Text="Ingrese rut" style="margin-bottom: 5px" />
             </div>
-
+                <div id="RespuestaRut" class="bg-white" style="margin-top: 10px">
+                <p>
+            <asp:Label ID="Label1" runat="server" Text="" ></asp:Label>
+        </p>
+                </div>
+            </section>
+                </section>
+            <div class="NombresContent row bg-secondary text-center" style="margin-top: 10px">
             <div>
                 <p>Ingrese su nombre y apellidos</p>
             </div>
-            <div class="input-group mb-3">
+            <div class="input-group mb-3 justify-content-center">
                 <div class="col-md-3">
-                    <asp:TextBox ID="Nombres" class="form-control" placeholder="Nombre y apellido" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="Nombres" class="form-control" placeholder="Nombre y apellidos" runat="server"></asp:TextBox>
                 </div>
 
             </div>
             <div class="col-12">
-
-                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Button" />
-
+                <asp:Button ID="Button2" runat="server"  class="btn btn-primary" OnClick="Button2_Click" OnClientClick="mostrarTexto()"  Text="Ingresar nombre" style="margin-bottom: 5px" />
             </div>
+                 <div class"container">
+         <div id="RespuestaNombres" class="bg-white" style="margin-top: 10px" >
+      
+        <p style="margin-right: 3px">
+            Nombres:   
+            <asp:Label ID="Label2" runat="server" Text="" ></asp:Label>
+        </p>
+       
+        <p style="margin-right: 3px">
+            Nombres:
+            <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
+        </p>
+        <p style="margin-right: 3px">
+            Apellido Paterno:
+            <asp:Label ID="Label4" runat="server" Text="" ></asp:Label>
+        </p>
+        <p style="margin-right: 3px">
+            Apellido Materno:
+            <asp:Label ID="Label5" runat="server" Text=""></asp:Label>
+        </p>
+        </div> 
 
+           </div>
         </form>
-        <p>
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        </p>
-
-        <p>
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-        </p>
-        <p>
-            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-        </p>
-        <p>
-            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
-        </p>
-        <p>
-            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
-        </p>
+          
     </section>
-
+ 
+     </div>
 </body>
 </html>
