@@ -60,12 +60,12 @@
          <div id="RespuestaNombres" class="bg-white" style="margin-top: 10px" >
       
         <p style="margin-right: 3px">
-            Nombres:   
+            Nombre:   
             <asp:Label ID="Label2" runat="server" Text="" ></asp:Label>
         </p>
        
         <p style="margin-right: 3px">
-            Nombres:
+            Nombres 2:
             <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
         </p>
         <p style="margin-right: 3px">
