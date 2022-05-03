@@ -1,4 +1,4 @@
-# Trabajo 1 - RCD 2022s1
+# Trabajo 1 - G5 - RCD 2022s1
 
 ## Descripción del Trabajo 🚀
 
